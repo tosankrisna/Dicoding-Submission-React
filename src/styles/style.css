@@ -1,0 +1,28 @@
+@import url("https://fonts.googleapis.com/css2?family=Poppins&display=swap");
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: "Poppins", sans-serif;
+  background-color: #f7f9fd;
+}
+
+.notes-header {
+  width: 100%;
+  text-align: center;
+  padding: 50px 0 100px 0;
+  background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)),
+    url("/public/img/bg.jpg");
+  background-size: cover;
+  background-position: center top;
+}
+
+.notes-header h1,
+.notes-header p {
+  color: #fff;
+  text-shadow: 2px 2px #000000;
+}
