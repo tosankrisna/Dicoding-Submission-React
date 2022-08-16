@@ -4,7 +4,7 @@ import SearchNote from "./SearchNote";
 import NoteItem from "./NoteItem";
 import NoteStatusHeader from "./NoteStatusHeader";
 
-function NoteList({ notes, onDelete }) {
+function NoteList({ notes, onDelete, onArchive }) {
   return (
     <section className="section_note">
       <FormHeader title="Daftar Catatan" />
@@ -18,6 +18,7 @@ function NoteList({ notes, onDelete }) {
                 key={note.id}
                 id={note.id}
                 onDelete={onDelete}
+                onArchive={onArchive}
                 {...note}
               />
             );
@@ -33,6 +34,7 @@ function NoteList({ notes, onDelete }) {
                 key={note.id}
                 id={note.id}
                 onDelete={onDelete}
+                onArchive={onArchive}
                 {...note}
               />
             );

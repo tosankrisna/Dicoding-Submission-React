@@ -159,8 +159,9 @@ body {
 }
 
 .note_status .status_header h1 {
-  margin: 10px 0;
-  font-size: 18px;
+  margin-top: 25px;
+  margin-bottom: 10px;
+  font-size: 22px;
 }
 
 .note_status .note_card {
@@ -172,6 +173,7 @@ body {
 .note_status .note_card h1 {
   font-size: 16px;
   margin-bottom: 3px;
+  font-weight: 600;
 }
 
 .note_status .note_card p {
