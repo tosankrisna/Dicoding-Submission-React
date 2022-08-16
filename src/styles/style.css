@@ -1,5 +1,3 @@
-@import url("https://fonts.googleapis.com/css2?family=Poppins&display=swap");
-
 * {
   margin: 0;
   padding: 0;
@@ -11,7 +9,7 @@ body {
   background-color: #f7f9fd;
 }
 
-.notes-header {
+.note_header {
   width: 100%;
   text-align: center;
   padding: 50px 0 100px 0;
@@ -21,8 +19,246 @@ body {
   background-position: center top;
 }
 
-.notes-header h1,
-.notes-header p {
+.note_header h1,
+.note_header p {
   color: #fff;
   text-shadow: 2px 2px #000000;
+}
+
+.container {
+  display: flex;
+  justify-content: center;
+  gap: 5%;
+  margin-bottom: 50px;
+}
+
+.section_input {
+  display: flex;
+  flex-direction: column;
+  flex-basis: 30%;
+  border-radius: 10px;
+  padding: 30px;
+  height: 470px;
+  margin-top: -50px;
+  background-color: #fff;
+}
+
+.header h1 {
+  text-align: center;
+  font-size: 22px;
+  margin-bottom: 20px;
+}
+
+.form_input {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.form_input .input {
+  display: flex;
+  flex-direction: column;
+}
+
+.form_input input,
+.form_input textarea {
+  padding: 5px;
+  border: 1px solid #000;
+  border-radius: 5px;
+}
+
+.form_input span,
+.form_input textarea {
+  margin-bottom: 20px;
+}
+
+.form_input span {
+  font-size: 14px;
+}
+
+.form_input input:focus,
+.form_input textarea:focus {
+  outline: none;
+}
+
+.form_input .btnSubmit {
+  margin: 10px 0;
+  border: 0;
+  color: #fff;
+  padding: 15px 10px;
+  border-radius: 20px;
+  cursor: pointer;
+  font-size: 14px;
+  background-color: rgb(2, 80, 197);
+}
+
+.form_input .btnClose {
+  border: 0;
+  color: #fff;
+  padding: 15px 10px;
+  border-radius: 20px;
+  cursor: pointer;
+  font-size: 14px;
+  background-color: #d9534f;
+}
+
+.form_input .btnSubmit:hover {
+  background-color: rgb(0, 56, 141);
+}
+
+.form_input .btnClose:hover {
+  background-color: #b1302b;
+}
+
+.section_note {
+  display: flex;
+  flex-direction: column;
+  border-radius: 10px;
+  padding: 30px;
+  margin-top: -50px;
+  background-color: #fff;
+  flex-basis: 45%;
+}
+
+.search_note form {
+  display: flex;
+  gap: 15px;
+  justify-content: center;
+}
+
+.search_note .search {
+  width: 100%;
+  padding: 10px 0;
+  border: 0;
+  margin-bottom: 10px;
+  border-bottom: 1px solid #000;
+}
+
+.search_note .search:focus {
+  outline: none;
+}
+
+.search_note .search::placeholder {
+  font-family: "Poppins", sans-serif;
+}
+
+.search_note button {
+  padding: 0 15px;
+  background-color: rgb(2, 80, 197);
+  border: none;
+  border-radius: 10px;
+}
+
+.search_note button i {
+  color: #fff;
+}
+
+.search_note button:hover {
+  cursor: pointer;
+}
+
+.note_status .status_header h1 {
+  margin: 10px 0;
+  font-size: 18px;
+}
+
+.note_status .note_card {
+  padding: 10px;
+  margin-bottom: 10px;
+  background-color: #f7f9fd;
+}
+
+.note_status .note_card h1 {
+  font-size: 16px;
+  margin-bottom: 3px;
+}
+
+.note_status .note_card p {
+  font-size: 14px;
+  margin-bottom: 5px;
+}
+
+.note_status .note_card .action {
+  display: flex;
+  align-self: center;
+  gap: 10px;
+}
+
+.note_status .note_card .action button {
+  padding: 10px;
+  font-size: 11px;
+  border: 0;
+  border-radius: 10px;
+}
+
+.note_status .note_card .btnArsip {
+  padding: 5px;
+  font-size: 11px;
+  background-color: #e4a44a;
+  color: #fff;
+}
+
+.note_status .note_card .btnHapus {
+  padding: 5px;
+  font-size: 11px;
+  background-color: #d9534f;
+  color: #fff;
+}
+
+.note_status .action button:hover {
+  cursor: pointer;
+}
+
+.modal_form {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.modal_form .modal_content {
+  display: flex;
+  width: 50%;
+  flex-direction: column;
+  box-shadow: 0px 0px 63px 32px rgba(0, 0, 0, 0.83);
+}
+
+@media screen and (max-width: 425px) {
+  .container {
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+  }
+
+  .section_note {
+    margin-top: 10%;
+  }
+
+  .note_status .note_card .action {
+    display: flex;
+    flex-direction: column;
+  }
+}
+
+@media screen and (min-width: 426px) and (max-width: 768px) {
+  .container {
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+  }
+
+  .section_input {
+    width: 90%;
+    margin: -50px auto;
+  }
+
+  .section_note {
+    width: 90%;
+    margin: 10% auto;
+  }
 }
