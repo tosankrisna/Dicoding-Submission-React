@@ -1,3 +1,4 @@
+import React from "react";
 import ArchiveButton from "./ArchiveButton";
 import DeleteButton from "./DeleteButton";
 import NoteItemBody from "./NoteItemBody";

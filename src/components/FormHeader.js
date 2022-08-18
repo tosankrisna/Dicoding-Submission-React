@@ -1,3 +1,5 @@
+import React from "react";
+
 function FormHeader({ title }) {
   return (
     <div className="header">

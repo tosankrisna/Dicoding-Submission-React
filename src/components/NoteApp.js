@@ -9,11 +9,13 @@ class NoteApp extends React.Component {
     super(props);
     this.state = {
       notes: getInitialData(),
+      search: "",
     };
 
     this.onDeleteHandler = this.onDeleteHandler.bind(this);
     this.onArchiveHandler = this.onArchiveHandler.bind(this);
     this.onAddNoteHandler = this.onAddNoteHandler.bind(this);
+    this.onSearchChangeEventHandler = this.onSearchChangeEventHandler.bind(this);
   }
 
   onDeleteHandler(id) {
@@ -42,24 +44,49 @@ class NoteApp extends React.Component {
             id: +new Date(),
             title,
             body,
-            createdAt: Date.now(),
             archived: false,
+            createdAt: new Date().toISOString(),
           },
         ],
       };
     });
   }
 
+  onSearchChangeEventHandler(event) {
+    this.setState(() => {
+      return {
+        search: event.target.value,
+      };
+    });
+  }
+
   render() {
+    const archivedNotes = this.state.notes.filter((note) => {
+      return (
+        note.title.toLowerCase().includes(this.state.search.toLowerCase()) &&
+        note.archived === true
+      );
+    });
+
+    const unarchivedNotes = this.state.notes.filter((note) => {
+      return (
+        note.title.toLowerCase().includes(this.state.search.toLowerCase()) &&
+        note.archived === false
+      );
+    });
+
     return (
       <div className="note_app">
         <NoteHeader />
         <div className="container">
           <NoteInput addNote={this.onAddNoteHandler} />
           <NoteList
-            notes={this.state.notes}
+            archivedNotes={archivedNotes}
+            unarchivedNotes={unarchivedNotes}
             onDelete={this.onDeleteHandler}
             onArchive={this.onArchiveHandler}
+            onSearchChange={this.onSearchChangeEventHandler}
+            search={this.state.search}
           />
         </div>
       </div>

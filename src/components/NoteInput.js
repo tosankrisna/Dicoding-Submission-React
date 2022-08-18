@@ -8,6 +8,7 @@ class NoteInput extends React.Component {
     this.state = {
       title: "",
       body: "",
+      limit: 50,
     };
 
     this.onTitleChangeEventHandler = this.onTitleChangeEventHandler.bind(this);
@@ -16,11 +17,16 @@ class NoteInput extends React.Component {
   }
 
   onTitleChangeEventHandler(event) {
-    this.setState(() => {
-      return {
-        title: event.target.value,
-      };
-    });
+    if (this.state.limit > 0) {
+      this.setState((prevState) => {
+        return {
+          title: event.target.value,
+          limit: prevState.limit - 1
+        };
+      });
+    } else {
+      alert('Tidak boleh lebih dari 50 karakter')
+    }
   }
 
   onBodyChangeEventHandler(event) {
@@ -38,6 +44,7 @@ class NoteInput extends React.Component {
       return {
         title: "",
         body: "",
+        limit: 50,
       };
     });
   }
@@ -52,6 +59,7 @@ class NoteInput extends React.Component {
           onBodyChange={this.onBodyChangeEventHandler}
           title={this.state.title}
           body={this.state.body}
+          limit={this.state.limit}
         />
       </section>
     );

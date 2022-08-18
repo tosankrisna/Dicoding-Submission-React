@@ -4,42 +4,49 @@ import SearchNote from "./SearchNote";
 import NoteItem from "./NoteItem";
 import NoteStatusHeader from "./NoteStatusHeader";
 
-function NoteList({ notes, onDelete, onArchive }) {
+function NoteList({
+  archivedNotes,
+  unarchivedNotes,
+  onDelete,
+  onArchive,
+  onSearchChange,
+  search,
+}) {
   return (
     <section className="section_note">
       <FormHeader title="Daftar Catatan" />
-      <SearchNote />
+      <SearchNote onSearchChange={onSearchChange} search={search} />
       <div className="note_status">
         <NoteStatusHeader title="Catatan Aktif" />
-        {notes.map((note) => {
-          if (note.archived === false) {
-            return (
-              <NoteItem
-                key={note.id}
-                id={note.id}
-                onDelete={onDelete}
-                onArchive={onArchive}
-                {...note}
-              />
-            );
-          }
-        })}
+        {unarchivedNotes.length
+          ? unarchivedNotes.map((note) => {
+              return (
+                <NoteItem
+                  key={note.id}
+                  id={note.id}
+                  onDelete={onDelete}
+                  onArchive={onArchive}
+                  {...note}
+                />
+              );
+            })
+          : "Tidak ada catatan"}
       </div>
       <div className="note_status">
         <NoteStatusHeader title="Arsip" />
-        {notes.map((note) => {
-          if (note.archived === true) {
-            return (
-              <NoteItem
-                key={note.id}
-                id={note.id}
-                onDelete={onDelete}
-                onArchive={onArchive}
-                {...note}
-              />
-            );
-          }
-        })}
+        {archivedNotes.length
+          ? archivedNotes.map((note) => {
+              return (
+                <NoteItem
+                  key={note.id}
+                  id={note.id}
+                  onDelete={onDelete}
+                  onArchive={onArchive}
+                  {...note}
+                />
+              );
+            })
+          : "Tidak ada catatan"}
       </div>
     </section>
   );

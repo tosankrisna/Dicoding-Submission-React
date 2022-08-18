@@ -1,4 +1,13 @@
-function FormInput({ onSubmit, onTitleChange, onBodyChange, title, body }) {
+import React from "react";
+
+function FormInput({
+  onSubmit,
+  onTitleChange,
+  onBodyChange,
+  title,
+  body,
+  limit,
+}) {
   return (
     <form onSubmit={onSubmit} className="form_input">
       <div className="input">
@@ -8,8 +17,9 @@ function FormInput({ onSubmit, onTitleChange, onBodyChange, title, body }) {
           className="note_title"
           value={title}
           onChange={onTitleChange}
+          required
         />
-        <span>Sisa karakter: 20</span>
+        <span>Sisa karakter: {limit}</span>
       </div>
       <div className="input">
         <label htmlFor="note_value">Isi Catatan</label>
@@ -20,6 +30,7 @@ function FormInput({ onSubmit, onTitleChange, onBodyChange, title, body }) {
           rows="10"
           value={body}
           onChange={onBodyChange}
+          required
         ></textarea>
       </div>
       <button type="submit" className="btnSubmit">
